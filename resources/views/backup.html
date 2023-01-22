@@ -1,0 +1,18 @@
+
+<!-- Edit & Delete menggunakan a -->
+<a class="badge bg-warning" type="submit" href="{{ url('/'.$item->nim) }}">Edit</a>
+<a onclick="return confirm('Yakin akan menghapus data ini?')" class="badge bg-danger" type="submit" href="{{ url('delete/'.$item->nim) }}">Delete</a>
+
+
+<!-- Edit & Delete menggunakan form -->
+<form class="d-inline" action="{{ url('/'.$item->nim) }}">
+    <button class="badge bg-warning" type="submit">Edit</button>
+</form>
+<form onsubmit="return confirm('Yakin akan menghapus data ini?')" class="d-inline" action="{{ url('delete/'.$item->nim) }}" method="get">
+    <button class="badge bg-danger" type="submit" name="submit">Delete</button>
+</form>
+
+<!-- Gunakan ini -->
+<!-- Gunakan ini -->
+<!-- Gunakan ini -->
+<!-- Gunakan ini -->
