@@ -16,16 +16,16 @@ use App\Http\Controllers\DosenController;
 */
 
 Route::get('/', function () {
+    return view('Dashboard.login',[
+        "title" => "Login"
+    ]);
+});
+
+Route::get('/home', function () {
     return view('Dashboard.home',[
         "title" => "Dashboard"
     ]);
 });
-
-// Route::get('/data', function () {
-//     return view('Dashboard.data',[
-//         "title" => "Data"
-//     ]);
-// });
 
 Route::get('/about', function () {
     return view('Dashboard.about',[

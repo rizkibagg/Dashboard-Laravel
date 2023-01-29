@@ -54,9 +54,9 @@
                             <div class="col-sm-10">
                                 <select class="form-select" class="form-control" id="matkul_id" name="matkul_id">
                                     <option selected>Pilih Mata Kuliah</option>
-                                    <option value="1">Pemrograman Perangkat Bergerak</option>
-                                    <option value="2">Algoritma dan Pemrograman</option>
-                                    <option value="3">Arsitektur Komputer</option>
+                                    @foreach ($data as $item)
+                                        <option value="{{ $item->id }}">{{ $item->matkul }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

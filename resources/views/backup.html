@@ -12,7 +12,22 @@
     <button class="badge bg-danger" type="submit" name="submit">Delete</button>
 </form>
 
-<!-- Gunakan ini -->
+<!-- Select -->
+<select class="form-select" class="form-control" id="matkul_id" name="matkul_id">
+    <option selected>Pilih Mata Kuliah</option>
+    <option value="1">Pemrograman Perangkat Bergerak</option>
+    <option value="2">Algoritma dan Pemrograman</option>
+    <option value="3">Arsitektur Komputer</option>
+    <option value="4">Rekayasa Pengairan atau Hidrologi</option>
+    <option value="5">Aljabar Linear</option>
+    <option value="6">Prinsip Rekayasa dan Ilmu Kealamiahan Dasar</option>
+    <option value="7">Sosio Informatika dan Profesionalisme</option>
+</select>
+
+@foreach ($data->matkul as $item)
+<option value="{{ $item->id }}">{{ $item->matkul }}</option>
+@endforeach
+
 <!-- Gunakan ini -->
 <!-- Gunakan ini -->
 <!-- Gunakan ini -->

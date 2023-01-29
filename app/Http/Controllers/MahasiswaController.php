@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $data = Mahasiswa::with('matkul')->get();
+        $data = Mahasiswa::orderBy('nim', 'desc')->get(); Mahasiswa::with('matkul')->get();
         return view('Dashboard.data',[
             "title" => "Data Mahasiswa"
         ])->with('data',$data);
@@ -27,9 +28,10 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
+        $data = Dosen::orderBy('id', 'asc')->get();
         return view('Dashboard.create',[
             "title" => "Data Mahasiswa"
-        ]);
+        ])->with('data',$data);
     }
 
     /**
@@ -69,7 +71,7 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-        $data = Mahasiswa::where('nim', $id)->first();
+        $data = Mahasiswa::where('nim', $id)->first(); Dosen::orderBy('id', 'asc')->get();
         return view('Dashboard.edit',[
             "title" => "Data Mahasiswa"
         ])->with('data', $data);
