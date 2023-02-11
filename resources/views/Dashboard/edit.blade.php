@@ -57,11 +57,11 @@
                         <div class="form-group row mt-3">
                             <label for="matkul_id" class="col-sm-2 col-form-label"></label>
                             <div class="col-sm-10">
-                                <select class="form-select" class="form-control" id="matkul_id" name="matkul_id">
-                                    <option selected>Pilih Mata Kuliah</option>
-                                    {{-- @foreach ($data->matkul as $item) --}}
-                                        <option value="{{ $data->matkul->id }}">{{ $data->matkul->matkul }}</option>
-                                    {{-- @endforeach --}}
+                                <select class="form-select" class="form-control" id="matkul_id" name="matkul_id" required>
+                                    <option value="" selected>Pilih Mata Kuliah</option>
+                                    @foreach ($data->dataDosen as $item)
+                                        <option value="{{ $item->id }}">{{ $item->matkul }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

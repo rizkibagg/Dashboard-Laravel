@@ -78,7 +78,7 @@
                                                 <form class="d-inline" action="{{ url('edit/'.$dosen->nik) }}">
                                                     <button class="badge bg-warning" type="submit">Edit</button>
                                                 </form>
-                                                <form onsubmit="return confirm('Yakin akan menghapus data ini?')" class="d-inline" action="{{ url('deleteds/'.$dosen->nik) }}" method="get">
+                                                <form class="d-inline" action="{{ url('deleteds/'.$dosen->nik) }}" method="get" id="deleteDs" data-nik="{{ $dosen->nik }}" data-nama="{{ $dosen->nama }}">
                                                     <button class="badge bg-danger" type="submit" name="submit">Delete</button>
                                                 </form>
                                             </td>

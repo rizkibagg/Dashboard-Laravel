@@ -52,8 +52,8 @@
                         <div class="form-group row mt-3">
                             <label for="matkul_id" class="col-sm-2 col-form-label">Mata Kuliah</label>
                             <div class="col-sm-10">
-                                <select class="form-select" class="form-control" id="matkul_id" name="matkul_id">
-                                    <option selected>Pilih Mata Kuliah</option>
+                                <select class="form-select" class="form-control" id="matkul_id" name="matkul_id" required>
+                                    <option value="" selected>Pilih Mata Kuliah</option>
                                     @foreach ($data as $item)
                                         <option value="{{ $item->id }}">{{ $item->matkul }}</option>
                                     @endforeach

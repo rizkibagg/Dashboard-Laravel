@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
@@ -33,23 +34,29 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/data', 'App\Http\Controllers\MahasiswaController@index')->name('data');
-Route::get('/datads', 'App\Http\Controllers\DosenController@index')->name('datads');
+Route::get('register', [UserController::class, 'register'])->name('register');
+Route::post('register', [UserController::class, 'createus'])->name('createus');
+Route::get('login', [UserController::class, 'login'])->name('login');
+Route::post('login', [UserController::class, 'login_action'])->name('login_action');
+Route::get('about', [UserController::class, 'password'])->name('password');
+Route::post('about', [UserController::class, 'password_action'])->name('password_action');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('/create', 'App\Http\Controllers\MahasiswaController@create')->name('create');
-Route::get('/createds', 'App\Http\Controllers\DosenController@create')->name('createds');
+Route::get('data', [MahasiswaController::class, 'index'])->name('data');
+Route::get('datads', [DosenController::class, 'index'])->name('datads');
 
-Route::post('/save', 'App\Http\Controllers\MahasiswaController@store')->name('save');
-Route::post('/saveds', 'App\Http\Controllers\DosenController@store')->name('saveds');
+Route::get('create', [MahasiswaController::class, 'create'])->name('create');
+Route::get('createds', [DosenController::class, 'create'])->name('createds');
 
-Route::get('/{nim}', 'App\Http\Controllers\MahasiswaController@edit')->name('edit');
-Route::get('/edit/{nik}', 'App\Http\Controllers\DosenController@edit')->name('edit');
+Route::post('save', [MahasiswaController::class, 'store'])->name('save');
+Route::post('saveds', [DosenController::class, 'store'])->name('saveds');
 
-Route::post('/update/{nim}', 'App\Http\Controllers\MahasiswaController@update')->name('update');
-Route::post('/updateds/{nik}', 'App\Http\Controllers\DosenController@update')->name('updateds');
+Route::get('{nim}', [MahasiswaController::class, 'edit'])->name('edit');
+Route::get('edit/{nik}', [DosenController::class, 'edit'])->name('edit');
 
-Route::get('/delete/{nim}', 'App\Http\Controllers\MahasiswaController@destroy')->name('delete');
-Route::get('/deleteds/{nim}', 'App\Http\Controllers\DosenController@destroy')->name('deleteds');
+Route::post('update/{nim}', [MahasiswaController::class, 'update'])->name('update');
+Route::post('updateds/{nik}', [DosenController::class, 'update'])->name('updateds');
 
-
+Route::get('delete/{nim}', [MahasiswaController::class, 'destroy'])->name('delete');
+Route::get('deleteds/{nik}', [DosenController::class, 'destroy'])->name('deleteds');
 

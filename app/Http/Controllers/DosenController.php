@@ -47,7 +47,7 @@ class DosenController extends Controller
             'matkul' => $request->matkul,
         ];
         Dosen::create($data);
-        return redirect('datads');
+        return redirect('datads')->with('toast_success', 'Data Berhasil Tersimpan!');
     }
 
     /**
@@ -90,7 +90,7 @@ class DosenController extends Controller
             'matkul' => $request->matkul,
         ];
         Dosen::where('nik',$id)->update($data);
-        return redirect('datads');
+        return redirect('datads')->with('toast_success', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -102,6 +102,6 @@ class DosenController extends Controller
     public function destroy($id)
     {
         Dosen::where('nik',$id)->delete();
-        return redirect('datads');
+        return redirect('datads')->with('toast_success', 'Data Berhasil Dihapus!');
     }
 }

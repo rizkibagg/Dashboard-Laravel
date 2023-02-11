@@ -19,13 +19,13 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="assets/img/bagus.png" alt="Profile" class="rounded-circle">
-              <h2>Rizki Bagus Pangestu</h2>
-              <h3>Web Designer</h3>
+              <img src="assets/img/min.png" alt="Profile" class="rounded-circle">
+              <h2>{{ Auth::user()->nama }}</h2>
+              <h3>{{ Auth::user()->type }}</h3>
               <div class="social-links mt-2">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                <a href="https://www.instagram.com/rizkibagg/" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
@@ -67,37 +67,17 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label ">Full Name</div>
-                    <div class="col-lg-9 col-md-8">Rizki Bagus Pangestu</div>
+                    <div class="col-lg-9 col-md-8">{{ Auth::user()->nama }}</div>
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Company</div>
-                    <div class="col-lg-9 col-md-8">Lueilwitz, Wisoky and Leuschke</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Job</div>
-                    <div class="col-lg-9 col-md-8">Web Designer</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Country</div>
-                    <div class="col-lg-9 col-md-8">Indonesia</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Address</div>
-                    <div class="col-lg-9 col-md-8">Ds. IX Cerme, Panjatan, Kulon Progo, DI Yogyakarta</div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Phone</div>
-                    <div class="col-lg-9 col-md-8">+62 89-8926-5625</div>
+                    <div class="col-lg-3 col-md-4 label">Type Account</div>
+                    <div class="col-lg-9 col-md-8">{{ Auth::user()->type }}</div>
                   </div>
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Email</div>
-                    <div class="col-lg-9 col-md-8">rizkibagusp04@gmail.com</div>
+                    <div class="col-lg-9 col-md-8">bootstrap@gmail.com</div>
                   </div>
 
                 </div>
@@ -109,7 +89,7 @@
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/bagus.png" alt="Profile">
+                        <img src="assets/img/min.png" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
@@ -120,7 +100,7 @@
                     <div class="row mb-3">
                       <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Full Name</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="fullName" type="text" class="form-control" id="fullName" value="Rizki Bagus Pangestu">
+                        <input name="fullName" type="text" class="form-control" id="fullName" value="{{ Auth::user()->nama }}">
                       </div>
                     </div>
 
@@ -132,44 +112,16 @@
                     </div>
 
                     <div class="row mb-3">
-                      <label for="company" class="col-md-4 col-lg-3 col-form-label">Company</label>
+                      <label for="type" class="col-md-4 col-lg-3 col-form-label">Type Account</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="company" type="text" class="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Job" class="col-md-4 col-lg-3 col-form-label">Job</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="job" type="text" class="form-control" id="Job" value="Web Designer">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="country" type="text" class="form-control" id="Country" value="Indonesia">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Address" class="col-md-4 col-lg-3 col-form-label">Address</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="address" type="text" class="form-control" id="Address" value="Ds. IX Cerme, Panjatan, Kulon Progo, DI Yogyakarta">
-                      </div>
-                    </div>
-
-                    <div class="row mb-3">
-                      <label for="Phone" class="col-md-4 col-lg-3 col-form-label">Phone</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="phone" type="text" class="form-control" id="Phone" value="+62 89-8926-5625">
+                        <input name="type" type="text" class="form-control" id="type" value="{{ Auth::user()->type }}">
                       </div>
                     </div>
 
                     <div class="row mb-3">
                       <label for="Email" class="col-md-4 col-lg-3 col-form-label">Email</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="email" type="email" class="form-control" id="Email" value="rizkibagusp04@gmail.com">
+                        <input name="email" type="email" class="form-control" id="Email" value="bootstrap@gmail.com">
                       </div>
                     </div>
 
@@ -252,33 +204,33 @@
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                   <!-- Change Password Form -->
-                  <form>
+                    <form method="post" action="{{ route('password_action')}}">
+                        @csrf
+                        <div class="row mb-3">
+                            <label for="currentPassword" class="col-md-4 col-lg-4 col-form-label">Current Password</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input name="oldpassword" type="password" class="form-control" id="currentPassword" required>
+                            </div>
+                        </div>
 
-                    <div class="row mb-3">
-                      <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="password" type="password" class="form-control" id="currentPassword">
-                      </div>
-                    </div>
+                        <div class="row mb-3">
+                            <label for="newPassword" class="col-md-4 col-lg-4 col-form-label">New Password</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input name="newpassword" type="password" class="form-control" id="newPassword" required>
+                            </div>
+                        </div>
 
-                    <div class="row mb-3">
-                      <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="newpassword" type="password" class="form-control" id="newPassword">
-                      </div>
-                    </div>
+                        <div class="row mb-3">
+                            <label for="renewPassword" class="col-md-4 col-lg-4 col-form-label">Re-enter New Password</label>
+                            <div class="col-md-8 col-lg-8">
+                                <input name="renewpassword" type="password" class="form-control" id="renewPassword" required>
+                            </div>
+                        </div>
 
-                    <div class="row mb-3">
-                      <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                      <div class="col-md-8 col-lg-9">
-                        <input name="renewpassword" type="password" class="form-control" id="renewPassword">
-                      </div>
-                    </div>
-
-                    <div class="text-center">
-                      <button type="submit" class="btn btn-primary">Change Password</button>
-                    </div>
-                  </form><!-- End Change Password Form -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Change Password</button>
+                        </div>
+                    </form><!-- End Change Password Form -->
 
                 </div>
 

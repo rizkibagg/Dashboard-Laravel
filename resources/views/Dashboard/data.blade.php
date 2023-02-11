@@ -76,7 +76,7 @@
                                             <td>{{ $mhs->matkul->matkul }}</td>
                                             <td>
                                                 <a class="badge bg-warning" type="submit" href="{{ url('/'.$mhs->nim) }}">Edit</a>
-                                                <a onclick="return confirm('Yakin akan menghapus data ini?')" class="badge bg-danger" type="submit" href="{{ url('delete/'.$mhs->nim) }}">Delete</a>
+                                                <a class="badge bg-danger" type="submit" href="{{ url('') }}" id="deleteMhs" data-nim="{{ $mhs->nim }}" data-nama="{{ $mhs->nama }}">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

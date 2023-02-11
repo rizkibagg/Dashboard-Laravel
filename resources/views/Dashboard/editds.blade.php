@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer mt-3">
                         <a type="submit" class="btn btn-secondary" href="{{ route('datads')}}">Kembali</a>
                         <button type="reset" class="btn btn-danger mx-2">Reset</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>

@@ -49,7 +49,7 @@ class MahasiswaController extends Controller
             'matkul_id' => $request->matkul_id,
         ];
         Mahasiswa::create($data);
-        return redirect('data');
+        return redirect('data')->with('toast_success', 'Data Berhasil Tersimpan!');
     }
 
     /**
@@ -71,7 +71,10 @@ class MahasiswaController extends Controller
      */
     public function edit($id)
     {
-        $data = Mahasiswa::where('nim', $id)->first(); Dosen::orderBy('id', 'asc')->get();
+        $data = Mahasiswa::where('nim', $id)->first();
+        $dataDosen = Dosen::orderBy('id', 'asc')->get();
+
+        $data->dataDosen = $dataDosen;
         return view('Dashboard.edit',[
             "title" => "Data Mahasiswa"
         ])->with('data', $data);
@@ -92,7 +95,7 @@ class MahasiswaController extends Controller
             'matkul_id' => $request->matkul_id,
         ];
         Mahasiswa::where('nim',$id)->update($data);
-        return redirect('data');
+        return redirect('data')->with('toast_success', 'Data Berhasil Diubah!');
     }
 
     /**
@@ -104,6 +107,6 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         Mahasiswa::where('nim',$id)->delete();
-        return redirect('data');
+        return redirect('data')->with('toast_success', 'Data Berhasil Dihapus!');
     }
 }
