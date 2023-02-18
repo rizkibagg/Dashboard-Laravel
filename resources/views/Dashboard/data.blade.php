@@ -6,7 +6,7 @@
         <h1>{{ $title }}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/home">Home</a></li>
                 <li class="breadcrumb-item active">{{ $title }}</li>
             </ol>
         </nav>
@@ -50,7 +50,7 @@
 
                             <div class="card-body">
                                 <h5 class="card-title">Mahasiswa <span>| Today</span></h5>
-                                <a type="button" class="btn btn-primary btn-sm mx-3" style="float: right;" href="{{ route('create') }}">Tambah Data</a>
+                                <a type="button" class="btn btn-primary btn-sm mx-3" style="float: right;" href="{{ route('createmhs') }}">Tambah Data</a>
 
                                 <table class="table table-hover datatable">
                                     <thead>
@@ -75,7 +75,7 @@
                                             <td>{{ $mhs->kelas }}</td>
                                             <td>{{ $mhs->matkul->matkul }}</td>
                                             <td>
-                                                <a class="badge bg-warning" type="submit" href="{{ url('/'.$mhs->nim) }}">Edit</a>
+                                                <a class="badge bg-warning" type="submit" href="{{ url('editmhs/'.$mhs->nim) }}">Edit</a>
                                                 <a class="badge bg-danger" type="submit" href="{{ url('') }}" id="deleteMhs" data-nim="{{ $mhs->nim }}" data-nama="{{ $mhs->nama }}">Delete</a>
                                             </td>
                                         </tr>
@@ -108,9 +108,9 @@
                                     new Chart(document.querySelector('#barChart'), {
                                     type: 'bar',
                                     data: {
-                                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                                        labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
                                         datasets: [{
-                                        label: 'Bar Chart',
+                                        label: 'Kelas',
                                         data: [65, 59, 80, 81, 56, 55, 40],
                                         backgroundColor: [
                                             'rgba(255, 99, 132, 0.2)',

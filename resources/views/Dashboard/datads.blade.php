@@ -6,7 +6,7 @@
         <h1>{{ $title }}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/home">Home</a></li>
                 <li class="breadcrumb-item active">{{ $title }}</li>
             </ol>
         </nav>
@@ -75,12 +75,8 @@
                                             <td>{{ $dosen->pstudi }}</td>
                                             <td>{{ $dosen->matkul }}</td>
                                             <td>
-                                                <form class="d-inline" action="{{ url('edit/'.$dosen->nik) }}">
-                                                    <button class="badge bg-warning" type="submit">Edit</button>
-                                                </form>
-                                                <form class="d-inline" action="{{ url('deleteds/'.$dosen->nik) }}" method="get" id="deleteDs" data-nik="{{ $dosen->nik }}" data-nama="{{ $dosen->nama }}">
-                                                    <button class="badge bg-danger" type="submit" name="submit">Delete</button>
-                                                </form>
+                                                <a class="badge bg-warning" href="{{ url('editds/'.$dosen->nik) }}" type="submit">Edit</a>
+                                                <a class="badge bg-danger" href="{{ url('') }}" type="submit" name="submit" id="deleteDs" data-nik="{{ $dosen->nik }}" data-nama="{{ $dosen->nama }}">Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -24,7 +24,7 @@
               <div class="card recent-sales overflow-auto">
 
                 <div class="card-body">
-                  <form method="post" action="{{ url('update/'.$data->nim)}}">
+                  <form method="post" action="{{ url('updatemhs/'.$data->nim)}}">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title mt-3"><b>Masukkan {{ $title }}</b></h5>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="modal-footer mt-3">
-                        <a type="submit" class="btn btn-secondary" href="{{ route('data')}}">Kembali</a>
+                        <a type="submit" class="btn btn-secondary" href="{{ route('datamhs')}}">Kembali</a>
                         <button type="reset" class="btn btn-danger mx-2">Reset</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>

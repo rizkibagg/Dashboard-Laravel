@@ -38,4 +38,12 @@
 7.	101010301	Ryan Setyawan S.Kom., M.Eng.	Informatika	Pemrograman Perangkat Bergerak
 
 <!-- Gunakan ini -->
+public function login_action(Request $request){
+    if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
+        $request->session()->regenerate();
+        return redirect('home')->with('info', 'Welcome Back!');
+    } else{
+        return back()->with('info', 'Username tidak ada!');
+    }
+}
 <!-- Gunakan ini -->

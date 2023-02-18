@@ -18,7 +18,7 @@
             </li><!-- End Tables Nav -->
 
             <li class="nav-item">
-                <a class="nav-link {{ ($title === "Data Mahasiswa") ? 'active' : 'collapsed' }}" href="{{ route('data') }}">
+                <a class="nav-link {{ ($title === "Data Mahasiswa") ? 'active' : 'collapsed' }}" href="{{ route('datamhs') }}">
                     <i class="bi bi-layout-text-window-reverse"></i>
                     <span>Mahasiswa</span>
                 </a>

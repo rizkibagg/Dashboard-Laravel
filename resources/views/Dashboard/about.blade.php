@@ -6,7 +6,7 @@
       <h1>Profile</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item"><a href="/home">Home</a></li>
           <li class="breadcrumb-item active">Profile</li>
         </ol>
       </nav>
@@ -19,7 +19,7 @@
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-              <img src="assets/img/min.png" alt="Profile" class="rounded-circle">
+              <img src="{{ asset('/template/img/min.png') }}" alt="Profile" class="rounded-circle">
               <h2>{{ Auth::user()->nama }}</h2>
               <h3>{{ Auth::user()->type }}</h3>
               <div class="social-links mt-2">
@@ -89,7 +89,7 @@
                     <div class="row mb-3">
                       <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
                       <div class="col-md-8 col-lg-9">
-                        <img src="assets/img/min.png" alt="Profile">
+                        <img src="{{ asset('/template/img/min.png') }}" alt="Profile">
                         <div class="pt-2">
                           <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                           <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>

@@ -21,18 +21,22 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $user->save();
-        return redirect()->route('login')->with('success', 'Account Berhasil Dibuat!');
+        return redirect()->route('login')->with('success', 'Account created successfully. Please login!');
     }
     public function login(){
         $data['title'] = 'Login';
         return view('Dashboard.login', $data);
     }
     public function login_action(Request $request){
-        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
+        $validator = $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        if(Auth::attempt($validator)){
             $request->session()->regenerate();
-            return redirect('/home')->with('info', 'Welcome Back!');
+            return redirect('home')->with('info', 'Welcome Back!');
         }
-        return back();
+        return back()->with('toast_error', 'Login failed, Try again.!');
     }
     public function password(){
         $data['title'] = 'About';
@@ -48,12 +52,12 @@ class UserController extends Controller
         $user->password = Hash::make($request->newpassword);
         $user->save();
         $request->session()->regenerate();
-        return back()->with('success', 'Password Berhasil Diubah!');
+        return back()->with('success', 'Password Changed Successfully!');
     }
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login')->with('success', 'Anda Berhasil Logout!');
+        return redirect()->route('login')->with('toast_info', 'You Successfully Logout!');
     }
 }
