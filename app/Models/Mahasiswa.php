@@ -13,5 +13,5 @@ class Mahasiswa extends Model
     public $timestamps = false;
     public function matkul(){
         return $this->belongsTo(Dosen::class);
-    }
+    }    
 }

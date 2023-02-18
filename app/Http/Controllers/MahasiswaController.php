@@ -15,14 +15,46 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $data = Mahasiswa::orderBy('nim', 'desc')->get(); Mahasiswa::with('matkul')->get();
-
+        $dataMhs = Mahasiswa::orderBy('nim', 'desc')->get(); Mahasiswa::with('matkul')->get();
         // $totalkelas = Mahasiswa::all('kelas');
 
-        // foreach($totalkelas[''] as $kls){
-        //     $kelas = $kls->kelas;
+        // foreach($totalkelas as $kls){
+        //     $kelas[$kls->kelas] = $kls->kelas;
         // }
+
+        // $array_kelas = array_values($kelas);
+        // $data = [];
+        // $data["mhs"] = $mhs;
+        // $data["kelas"] = $array_kelas;   
+
+        $kelas = [];
+        foreach ($dataMhs as $mhs) {
+            $kelas[$mhs->kelas][] = $mhs;
+        }
+        
+        $array_kelas = array_keys($kelas);
+
+        sort($array_kelas);
+
+        $array_count = [];
+       
+        foreach ($array_kelas as $arr_kls) {
+            // echo $arr_kls;
+            $array_count[$arr_kls] = count($kelas[$arr_kls]);
+        }    
+        
+
+        $array_count = array_values($array_count);
+        // echo json_encode($test); die;
+        // echo json_encode($array_kelas);die;
+
         // dd($totalkelas);
+
+        $data["mhs"] = $dataMhs;
+        $data["kelas"] = $array_kelas;
+        $data["count_kelas"] = json_encode($array_count);
+
+        // echo json_encode($data);die;
 
         return view('Dashboard.data',[
             "title" => "Data Mahasiswa"

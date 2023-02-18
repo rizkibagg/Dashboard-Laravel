@@ -67,7 +67,7 @@
                                         @php
                                             $no = 1;
                                         @endphp
-                                        @foreach ($data as $mhs)
+                                        @foreach ($data["mhs"] as $mhs)
                                         <tr>
                                             <td><?php echo $no++; ?>.</td>
                                             <th scope="row">{{ $mhs->nim }}</th>
@@ -108,10 +108,10 @@
                                     new Chart(document.querySelector('#barChart'), {
                                     type: 'bar',
                                     data: {
-                                        labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+                                        labels: {!!json_encode($data["kelas"])!!},
                                         datasets: [{
                                         label: 'Kelas',
-                                        data: [65, 59, 80, 81, 56, 55, 40],
+                                        data: {{$data["count_kelas"]}},
                                         backgroundColor: [
                                             'rgba(255, 99, 132, 0.2)',
                                             'rgba(255, 159, 64, 0.2)',
