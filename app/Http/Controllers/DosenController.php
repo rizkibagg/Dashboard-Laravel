@@ -17,20 +17,42 @@ class DosenController extends Controller
         $data = Dosen::orderBy('nik', 'desc')->get();
 
         $chartData = [];
+        $dosenByMatkul = [];
 
         foreach ($data as $dosen) {
+            // dosen by prodi
             $chartData[$dosen->pstudi] = 0;
+            
+            // dosen by matkul
+            $dosenByMatkul[$dosen->matkul] = 0;
         }
 
         foreach ($data as $dosen) {
             $chartData[$dosen->pstudi] = $chartData[$dosen->pstudi]+1;
+            
+            // dosen by matkul
+            $dosenByMatkul[$dosen->matkul] = $dosenByMatkul[$dosen->matkul] + 1;
         }
 
+        // data dosen by prodi
         $chartColumns = array_keys($chartData);
         $chartValues = array_values($chartData);
 
         $data->chart_column = json_encode($chartColumns);
         $data->chart_values = json_encode($chartValues);
+
+
+        // data dosen by matkul
+        $charDosenByMatkul = [];
+        foreach ($dosenByMatkul as $key => $value) {
+            $temp["name"] = $key;
+            $temp["value"] = $value;
+
+            $charDosenByMatkul[] = $temp;
+        }
+
+        $data->chart_dosen_by_matkul = json_encode($charDosenByMatkul);
+
 
         return view('Dashboard.datads',[
             "title" => "Data Dosen"

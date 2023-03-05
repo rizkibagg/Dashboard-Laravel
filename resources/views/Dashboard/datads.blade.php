@@ -98,7 +98,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Chart Dosen</h5>
+                                <h5 class="card-title">Data Dosen Berdasarkan Program Studi</h5>
 
                                 <!-- Bar Chart -->
                                 <canvas id="barChart" style="max-height: 400px;"></canvas>
@@ -158,7 +158,7 @@
                 <div class="card">
 
                     <div class="card-body pb-0">
-                        <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+                        <h5 class="card-title">Data Dosen Berdasarkan Mata Kuliah</h5>
 
                         <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
@@ -169,13 +169,13 @@
                                         trigger: 'item'
                                     },
                                     legend: {
-                                        top: '5%',
+                                        top: '1%',
                                         left: 'center'
                                     },
                                     series: [{
                                         name: 'Access From',
                                         type: 'pie',
-                                        radius: ['40%', '70%'],
+                                        radius: ['50%', '70%'],
                                         avoidLabelOverlap: false,
                                         label: {
                                             show: false,
@@ -191,7 +191,9 @@
                                         labelLine: {
                                             show: false
                                         },
-                                        data: [{
+                                        data: {!!$data->chart_dosen_by_matkul!!}
+
+                                        /*[{
                                                 value: 1048,
                                                 name: 'Search Engine'
                                             },
@@ -211,7 +213,7 @@
                                                 value: 300,
                                                 name: 'Video Ads'
                                             }
-                                        ]
+                                        ]*/
                                     }]
                                 });
                             });
