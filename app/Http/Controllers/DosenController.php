@@ -15,6 +15,23 @@ class DosenController extends Controller
     public function index()
     {
         $data = Dosen::orderBy('nik', 'desc')->get();
+
+        $chartData = [];
+
+        foreach ($data as $dosen) {
+            $chartData[$dosen->pstudi] = 0;
+        }
+
+        foreach ($data as $dosen) {
+            $chartData[$dosen->pstudi] = $chartData[$dosen->pstudi]+1;
+        }
+
+        $chartColumns = array_keys($chartData);
+        $chartValues = array_values($chartData);
+
+        $data->chart_column = json_encode($chartColumns);
+        $data->chart_values = json_encode($chartValues);
+
         return view('Dashboard.datads',[
             "title" => "Data Dosen"
         ])->with('data',$data);
