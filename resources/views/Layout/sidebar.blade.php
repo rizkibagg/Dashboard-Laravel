@@ -6,30 +6,30 @@
             <li class="nav-item">
                 <a class="nav-link {{ ($title === "Dashboard") ? 'active' : 'collapsed' }}" href="/home">
                     <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
+                    <span>Akademik</span>
                 </a>
             </li><!-- End Dashboard Nav -->
 
             <li class="nav-item">
                 <a class="nav-link {{ ($title === "Data Dosen") ? 'active' : 'collapsed' }}" href="{{ route('datads') }}">
                     <i class="bi bi-layout-text-window-reverse"></i>
-                    <span>Dosen</span>
+                    <span>PTB</span>
                 </a>
             </li><!-- End Tables Nav -->
 
             <li class="nav-item">
                 <a class="nav-link {{ ($title === "Data Mahasiswa") ? 'active' : 'collapsed' }}" href="{{ route('datamhs') }}">
                     <i class="bi bi-layout-text-window-reverse"></i>
-                    <span>Mahasiswa</span>
+                    <span>SDM</span>
                 </a>
             </li><!-- End Tables Nav -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{ ($title === "About") ? 'active' : 'collapsed' }}" href="/about">
                     <i class="bi bi-person"></i>
                     <span>Profile</span>
                 </a>
-            </li><!-- End Profile Page Nav -->
+            </li>End Profile Page Nav -->
 
         </ul>
 
